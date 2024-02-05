@@ -1,0 +1,19 @@
+Название опроса: {{ survey.name }}<br>
+Кол-во людей прошедших этот опрос: {{ survey.passed }}<br><br>
+
+{% for question in survey.questions.values %}
+Вопрос: {{ question.text }}<br>
+Кол-во ответивших: {{ question.answered }}<br>
+Доля от общего кол-ва участников опроса: {{ question.rate }}%<br>
+Порядковый номер вопроса по кол-ву ответивших: {{ question.rank }}<br>
+Варианты ответа:
+<ul>
+    {% for choice in question.choices %}
+    <li>
+        {{ choice.text }}<br>
+        Кол-во ответивших: {{ choice.chosen }}<br>
+        Доля от общего кол-ва ответивших на вопрос: {{ choice.rate }}%
+    </li>
+    {% endfor %}
+</ul>
+{% endfor %}

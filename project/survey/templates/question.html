@@ -1,0 +1,10 @@
+{{ question.text }}
+<form method="get" action="{% url 'survey' survey_id %}">
+    {% for choice in choices %}
+    <div>
+        <input type="radio" name="choice_id" value="{{ choice.id }}" checked="">
+        <label>{{ choice.text }}</label>
+    </div>
+    {% endfor %}
+    <button type="submit">Далее</button>
+</form>

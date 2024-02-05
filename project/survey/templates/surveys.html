@@ -1,0 +1,9 @@
+<ul>
+    {% for survey in surveys %}
+    <li>
+        <a methods="GET" href="{% url 'survey' survey.pk %}?choice_id=None">
+            {{ survey.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
